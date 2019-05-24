@@ -17,6 +17,23 @@
  <listener>
  	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
  </listener>
+ 
+ 
+ 
+ <!-- *****************中文处理********************** -->
+ <filter>
+ 	<filter-name>characterEncoding</filter-name>
+ 	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+ </filter>
+ <filter-mapping>
+ 	<filter-name>characterEncoding</filter-name>
+ 	<url-pattern>/*</url-pattern>
+ </filter-mapping>
+ 
+ 
+ 
+ 
+ 
   
   <!--  ***********************SpringMVC前端控制器初始化*********************-->
    <servlet>

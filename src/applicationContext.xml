@@ -13,27 +13,34 @@
      http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
      <!--  将serviceimp包的类，对象初始化-->
      <context:component-scan base-package="com.wyr.service"></context:component-scan>
+     <!--  引入外部文件-->
+     <context:property-placeholder location="classpath:db.properties"/>
+     
+     
      
      <!--*******************************  以下都是手动式装配bean************************-->
      <!--  连接数据源-->
      	<bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
      		<!--  驱动-->
      		<property name="driverClassName">
-     			<value>com.microsoft.sqlserver.jdbc.SQLServerDriver</value>
+     			<value>com.mysql.jdbc.Driver</value>
      		</property>
      		<!--  url-->
      		<property name="url">
-     			<value>jdbc:sqlserver://localhost:1433;databaseName=test</value>
+     			<value>${jdbc.url}</value>
      		</property>
      		<!--  name-->
      		<property name="username">
-     			<value>sa</value>
+     			<value>${jdbc.user}</value>
      		</property>
      		<!--pwd  -->
      		<property name="password">
-     			<value>123456</value>
+     			<value>${jdbc.password}</value>
      		</property>
      	</bean>
+     	
+     	
+     	
      	
      	<!--  与数据库进行会话-->
      	<bean id="sqlsession" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -45,15 +52,20 @@
      		</property>
      		<!--  扫描映射的sql-->
      		<property name="mapperLocations">
-     			<value>classpath:com/wyr/mapper/*.xml</value>
+     			<value>classpath:resources/*.xml</value>
      		</property>
-     	</bean>
+     	</bean>    
      	<!-- 扫描mapper接口 -->
      	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
      		<property name="basePackage">
      			<value>com.wyr.mapper</value>
      		</property>
      	</bean>
+     	
+     	
+     	
+     	
+     	
      	<!--  事务依赖连接池-->
      	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
      		<property name="dataSource" ref="datasource"></property>

@@ -5,13 +5,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+
+
 </head>
 <body>
-<!--  欢迎干哈！-->
-	<form action="<%=request.getContextPath()%>/test" method="get">
-		<input type="text" name="uname"/><br><br>
-		<input type="submit" value="OK"/>
-	</form>
 
+	<%-- <form action="${pageContext.request.contextPath}/test" method="get">
+		<input type="text" name="name"/><br><br>
+		<input type="submit" value="OK"/>
+	</form> --%>
+	<button>请求</button>
+	<script type="text/javascript">
+	$(function(){
+		alert(1111);
+	})
+	</script>
+	
+	
+	
+	
+	
+	
 </body>
 </html>

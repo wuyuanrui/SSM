@@ -13,12 +13,13 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	UserMapper userMapper;
 	
-	@Override
 	
+	@Override
 	public void add(String name) {
 		userMapper.add(name);
 		int i=1/0;//业务层出错了
 		System.out.println("OK");
 	}
+	
 
 }

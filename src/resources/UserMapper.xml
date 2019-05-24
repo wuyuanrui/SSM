@@ -5,6 +5,6 @@
 <!--  映射的mapper文件-->
 <mapper namespace="com.wyr.mapper.UserMapper">
 	  <insert id="add" parameterType="String">
-	  	insert into users values(#{name}) 
+	  	insert into user values(null,#{name}) 
 	  </insert>
 </mapper>
